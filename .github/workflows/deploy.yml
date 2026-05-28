@@ -120,6 +120,10 @@ jobs:
 
       - name: Terraform Validate
         run: terraform validate -no-color
+      
+      - name: Import ECR repository if exists
+        run: |
+          terraform import aws_ecr_repository.nginx ecs-nginx-demo || true
 
       # Terraform Apply – přepíšeme image_tag na konkrétní SHA z docker jobu
       - name: Terraform Apply
