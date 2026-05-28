@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ECS Nginx Demo</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 2.5rem 3rem;
+      max-width: 520px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    }
+    .badge {
+      display: inline-block;
+      background: #22c55e22;
+      color: #22c55e;
+      border: 1px solid #22c55e55;
+      border-radius: 20px;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      padding: .25rem .75rem;
+      margin-bottom: 1.25rem;
+    }
+    h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: .5rem; }
+    p  { color: #94a3b8; line-height: 1.6; margin-bottom: 1.5rem; }
+    .stack {
+      display: flex;
+      justify-content: center;
+      gap: .75rem;
+      flex-wrap: wrap;
+    }
+    .pill {
+      background: #0f172a;
+      border: 1px solid #475569;
+      border-radius: 8px;
+      padding: .35rem .9rem;
+      font-size: .8rem;
+      color: #cbd5e1;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="badge">✓ RUNNING</span>
+    <h1>Nginx na AWS ECS</h1>
+    <p>Tato stránka běží jako kontejner <strong>nginx:alpine</strong> na AWS ECS Fargate,<br>
+       publikovaný přes vlastní ECR registry.</p>
+    <div class="stack">
+      <span class="pill">🐳 Docker</span>
+      <span class="pill">📦 AWS ECR</span>
+      <span class="pill">🚀 ECS Fargate</span>
+      <span class="pill">⚖️ ALB</span>
+      <span class="pill">🏗️ Terraform</span>
+      <span class="pill">⚙️ GitHub Actions</span>
+    </div>
+  </div>
+</body>
+</html>
