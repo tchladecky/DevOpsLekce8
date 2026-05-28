@@ -12,6 +12,8 @@ env:
   PROJECT_NAME: ecs-nginx-demo   # musí odpovídat terraform.tfvars
 
 jobs:
+
+
   # ============================================================
   # JOB 1 – Build Docker image a push do ECR
   # ============================================================
@@ -60,6 +62,11 @@ jobs:
           URL="${ACCOUNT_ID}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.PROJECT_NAME }}"
           echo "url=${URL}" >> $GITHUB_OUTPUT
           echo "ECR URL: ${URL}"
+
+      - name: Ensure ECR repository exists
+        run: |
+          aws ecr describe-repositories --repository-names ${{ env.PROJECT_NAME }} \
+            || aws ecr create-repository --repository-name ${{ env.PROJECT_NAME }}
 
       # Build a push: tagujeme SHA i latest
       - name: Build & Push Docker image
